@@ -1,0 +1,72 @@
+Respostas dos exercícios de shell
+
+1)
+
+#!/bin/bash
+echo Informe o nome do arquivo:
+read ARQUIVO
+if [ -f "$ARQUIVO" ]
+then
+	cat "$ARQUIVO"
+else
+	echo "Arquivo $ARQUIVO não encontrado"
+fi
+
+--//--
+
+#!/bin/bash
+if [ -f "$1" ]
+then
+	cat "$1"
+else
+	echo "Arquivo $1 não encontrado"
+fi
+
+2)
+
+#!/bin/bash
+for arq in "$@"
+do
+	if [ -f "$arq" ]
+	then
+		cat "$arq"
+	else
+		echo "****Arquivo $arq não encontrado****"
+	fi
+done
+
+3)
+
+#!/bin/bash
+if [ $1 -eq $2 ]
+then
+	echo "$1 é igual a $2"
+elif [ $1 -lt $2 ]
+then
+	echo "$1 é menor que $2"
+else
+	echo "$1 é maior que $2"
+fi
+
+4)
+
+#!/bin/bash
+[ $# -ne 2 ] && exit
+echo $2 | grep $1 &>/dev/null && echo "$1 está contida em $2"
+
+5)
+
+#!/bin/bash
+
+while [ -n "$1" ]
+do
+	case "$1" in
+		-[uU]) echo "Usuários conectados:"; who ;;
+		-[dD]) echo "Uso de disco:"; df ;;
+		-[mM]) echo "Uso de memória:"; free -m ;;
+		-[Hh]) echo "Data e hora:"; date ;;
+		*) echo "Opção desconhecida" ;;
+	esac
+	shift
+	echo
+done

@@ -1,0 +1,88 @@
+Exercícios de shell script
+
+1) Faça um script que mostre o conteúdo de um arquivo informado pelo
+usuário. Se o arquivo não existir mostre a mensagem:
+
+"Arquivo (nome do arquivo) não encontrado"
+
+2) Reescreva o script anterior para aceitar mais de um nome de arquivo
+por parâmetro. Mostre a mensagem de erro para cada arquivo que não for
+encontrado.
+
+3) Faça um script que receba 2 números por parâmetro e mostre a relação
+entre eles. Exemplo de saída:
+
+$ ./relacao.sh 3 5
+3 é menor que 5
+$ ./relacao.sh 5 3
+5 é maior que 3
+$ ./relacao.sh 5 5
+5 é igual a 5
+
+4) Faça um script que recebe 2 palavras como parâmetro e verifica se a 
+primeira palavra está contida dentro da segunda. Só mostra mensagem
+informativa em caso de sucesso, do contrário não mostra nada. Exemplo:
+
+$ ./substring.sh ana banana
+ana está contida em banana
+$ ./substring.sh banana maria
+$ ./substring.sh banana
+$ ./substring.sh
+
+Dica: use o comando grep
+$# é uma variável especial que mantém o número de parâmetros passados
+
+5) Considere o script abaixo que permite a exibição de dados do sistema:
+
+#!/bin/bash
+
+echo "Que dados do sistema deseja exibir?
+1) (u)suários conectados
+2) uso de (d)isco
+3) uso de (m)emória
+4) data e (h)ora
+
+Entre qualquer outra opção para sair"
+read RESPOSTA
+
+case "$RESPOSTA" in
+	[uU]) echo "Usuários conectados:"; who ;;
+	[dD]) echo "Uso de disco:"; df ;;
+	[mM]) echo "Uso de memória:"; free -m ;;
+	[Hh]) echo "Data e hora:";	date ;;
+	*) echo "Opção desconhecida"; exit 1;;
+esac
+
+Altere-o para receber que informações exibir via opções de linha de
+comando, como se fosse um comando Unix. Exemplo:
+
+$ ./sistema2.sh -x
+Opção desconhecida
+
+$ ./sistema2.sh -d
+Uso de disco:
+Sist. Arq.     1K-blocos      Usad   Dispon. Uso% Montado em
+/dev/sda1      384496692 220621240 144344088  61% /
+udev             1912816        12   1912804   1% /dev
+tmpfs             768648       852    767796   1% /run
+none                5120         0      5120   0% /run/lock
+none             1921616       364   1921252   1% /run/shm
+/dev/sdc1        1991744   1886048    105696  95% /media/4F88-0CEE
+
+$ ./sistema2.sh -d -h
+Uso de disco:
+Sist. Arq.     1K-blocos      Usad   Dispon. Uso% Montado em
+/dev/sda1      384496692 220621240 144344088  61% /
+udev             1912816        12   1912804   1% /dev
+tmpfs             768648       852    767796   1% /run
+none                5120         0      5120   0% /run/lock
+none             1921616       364   1921252   1% /run/shm
+/dev/sdc1        1991744   1886048    105696  95% /media/4F88-0CEE
+
+Data e hora:
+Ter Jan 22 01:10:19 BRST 2013
+
+
+
+Dica: use o comando shift em um laço while para processar as opções.
+O case do script original ficará praticamente inalterado.
