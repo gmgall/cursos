@@ -1,0 +1,3 @@
+[submodule "python-hpc"]
+	path = python-hpc
+	url = https://github.com/gmgall/python-hpc
