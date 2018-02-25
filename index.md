@@ -20,3 +20,10 @@
 * Slides 2º dia [[PDF](shell/script.pdf), [ODP](shell/script.odp)]
 * Slides 3º dia [[PDF](shell/comandos.pdf), [ODP](shell/comandos.odp)]
 * Exercícios [[TXT](shell/exercicios.txt)] / Respostas [[TXT](shell/respostas.txt)]
+
+----------
+
+## Python para HPC
+
+* Slides [[PDF](python-hpc/Python%20para%20HPC.pdf)]
+* Códigos de exemplo [[no github](https://github.com/gmgall/python-hpc)]
