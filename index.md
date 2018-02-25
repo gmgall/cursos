@@ -25,5 +25,6 @@
 
 ## Python para HPC
 
-* Slides [[PDF](python-hpc/Python%20para%20HPC.pdf)]
+* Slides
+  [[PDF](https://github.com/gmgall/python-hpc/blob/master/Python%20para%20HPC.pdf)]
 * Códigos de exemplo [[no github](https://github.com/gmgall/python-hpc)]
